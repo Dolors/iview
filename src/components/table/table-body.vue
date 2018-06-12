@@ -4,10 +4,9 @@
             <col v-for="(column, index) in columns" :width="setCellWidth(column)">
         </colgroup>
         <tbody :class="[prefixCls + '-tbody']">
-            <template v-for="(row, index) in data">
+            <template v-for="(row, index) in data" :key="row._rowKey">
                 <table-tr
                     :row="row"
-                    :key="row._rowKey"
                     :prefix-cls="prefixCls"
                     @mouseenter.native.stop="handleMouseIn(row._index)"
                     @mouseleave.native.stop="handleMouseOut(row._index)"
